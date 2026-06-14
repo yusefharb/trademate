@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Get Started — Trademate</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    body { font-family: 'Inter', system-ui, sans-serif; }
+    .step-indicator { transition: all 0.3s ease; }
+    .step-active { --tw-ring-color: #2563eb; }
+    .fade-in { animation: fadeIn 0.3s ease; }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+    .btn-primary { @apply bg-blue-600 text-white px-6 py-3 rounded-xl font-semibold hover:bg-blue-700 transition-all shadow-lg hover:shadow-xl disabled:opacity-50 disabled:cursor-not-allowed; }
+    .btn-secondary { @apply bg-white text-gray-700 px-6 py-3 rounded-xl font-semibold hover:bg-gray-50 transition-all border border-gray-200; }
+    .input-field { @apply w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition-all text-sm; }
+    .service-card { @apply bg-white rounded-xl p-4 border hover:border-blue-300 cursor-pointer transition-all; }
+    .service-card.selected { @apply border-blue-600 bg-blue-50 ring-2 ring-blue-200; }
+  </style>
+</head>
+<body class="bg-gradient-to-br from-gray-50 to-blue-50 min-h-screen">
+  <!-- Top Navigation -->
+  <nav class="bg-white/80 backdrop-blur-md border-b sticky top-0 z-50">
+    <div class="max-w-5xl mx-auto px-4 py-3 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <span class="text-2xl">🏗️</span>
+        <span class="text-xl font-bold text-gray-900">Trademate</span>
+      </div>
+      <div class="flex items-center gap-4">
+        <span class="text-sm text-gray-500" id="user-email">Loading...</span>
+        <button onclick="logout()" class="text-sm text-gray-400 hover:text-red-500">Sign out</button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Progress Bar -->
+  <div class="max-w-2xl mx-auto px-4 pt-8 pb-4">
+    <div class="flex items-center gap-2" id="steps-progress">
+      <div class="step-dot" data-step="1"><div class="w-8 h-8 rounded-full bg-blue-600 text-white flex items-center justify-center text-sm font-bold">1</div></div>
+      <div class="flex-1 h-0.5 bg-gray-200"><div class="h-full bg-blue-600 transition-all" id="progress-line-1" style="width:0%"></div></div>
+      <div class="step-dot" data-step="2"><div class="w-8 h-8 rounded-full bg-gray-200 text-gray-500 flex items-center justify-center text-sm font-bold">2</div></div>
+      <div class="flex-1 h-0.5 bg-gray-200"><div class="h-full bg-blue-600 transition-all" id="progress-line-2" style="width:0%"></div></div>
+      <div class="step-dot" data-step="3"><div class="w-8 h-8 rounded-full bg-gray-200 text-gray-500 flex items-center justify-center text-sm font-bold">3</div></div>
+      <div class="flex-1 h-0.5 bg-gray-200"><div class="h-full bg-blue-600 transition-all" id="progress-line-3" style="width:0%"></div></div>
+      <div class="step-dot" data-step="4"><div class="w-8 h-8 rounded-full bg-gray-200 text-gray-500 flex items-center justify-center text-sm font-bold">4</div></div>
+      <div class="flex-1 h-0.5 bg-gray-200"><div class="h-full bg-blue-600 transition-all" id="progress-line-4" style="width:0%"></div></div>
+      <div class="step-dot" data-step="5"><div class="w-8 h-8 rounded-full bg-gray-200 text-gray-500 flex items-center justify-center text-sm font-bold">5</div></div>
+    </div>
+    <div class="flex justify-between mt-2 text-xs text-gray-400 font-medium">
+      <span>Welcome</span><span>Business</span><span>Services</span><span>Areas</span><span>Done</span>
+    </div>
+  </div>
+
+  <!-- Step Containers -->
+  <div class="max-w-2xl mx-auto px-4 pb-16">
+    <!-- Step 1: Welcome -->
+    <div class="step-content fade-in" id="step-1">
+      <div class="bg-white rounded-2xl shadow-sm border p-8 md:p-12 text-center">
+        <div class="text-6xl mb-6">👋</div>
+        <h1 class="text-3xl font-bold text-gray-900 mb-3">Welcome to Trademate</h1>
+        <p class="text-gray-500 text-lg mb-8 max-w-md mx-auto">Let's get your business set up in 5 minutes. We'll collect your info, services, and get you ready to capture leads.</p>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
+          <div class="bg-blue-50 rounded-xl p-4 text-left"><div class="text-2xl mb-2">🌐</div><div class="font-semibold text-sm">AI Website</div><div class="text-xs text-gray-500">Auto-generated from your info</div></div>
+          <div class="bg-green-50 rounded-xl p-4 text-left"><div class="text-2xl mb-2">🤖</div><div class="font-semibold text-sm">Chatbot + Voice</div><div class="text-xs text-gray-500">Capture leads 24/7</div></div>
+          <div class="bg-purple-50 rounded-xl p-4 text-left"><div class="text-2xl mb-2">📱</div><div class="font-semibold text-sm">Auto Follow-ups</div><div class="text-xs text-gray-500">SMS, reminders, reviews</div></div>
+        </div>
+        <button onclick="goToStep(2)" class="btn-primary text-lg px-10">Get Started →</button>
+      </div>
+    </div>
+
+    <!-- Step 2: Business Info -->
+    <div class="step-content fade-in hidden" id="step-2">
+      <div class="bg-white rounded-2xl shadow-sm border p-8 md:p-12">
+        <h2 class="text-2xl font-bold text-gray-900 mb-2">Your Business</h2>
+        <p class="text-gray-500 mb-8">Tell us about your trade business.</p>
+        <div class="space-y-5">
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-1">Your Name</label>
+            <input id="biz-name" class="input-field" placeholder="e.g. Dave Smith" />
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-1">Business Name</label>
+            <input id="biz-business-name" class="input-field" placeholder="e.g. Smith & Sons Plumbing" />
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-1">Business Phone</label>
+            <input id="biz-phone" class="input-field" placeholder="e.g. +44 7700 900123" />
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-1">Business Address</label>
+            <input id="biz-address" class="input-field" placeholder="e.g. 42 High Street, London" />
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-1">Description</label>
+            <textarea id="biz-description" class="input-field h-24" placeholder="Describe your business — specialities, years of experience, etc."></textarea>
+          </div>
+        </div>
+        <div class="flex gap-3 mt-8">
+          <button onclick="goToStep(1)" class="btn-secondary">Back</button>
+          <button onclick="saveBusinessInfo()" class="btn-primary flex-1">Continue →</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Step 3: Services -->
+    <div class="step-content fade-in hidden" id="step-3">
+      <div class="bg-white rounded-2xl shadow-sm border p-8 md:p-12">
+        <div class="flex items-center justify-between mb-2">
+          <h2 class="text-2xl font-bold text-gray-900">Your Services</h2>
+          <span class="text-sm text-gray-400" id="service-count">0 added</span>
+        </div>
+        <p class="text-gray-500 mb-6">What services do you offer? Add pricing so we can generate quotes automatically.</p>
+        
+        <!-- Add Service Form -->
+        <div class="bg-gray-50 rounded-xl p-4 mb-6">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-3 mb-3">
+            <input id="svc-name" class="input-field" placeholder="Service name (e.g. Boiler Repair)" />
+            <select id="svc-price-type" class="input-field">
+              <option value="fixed">Fixed price</option>
+              <option value="hourly">Hourly rate</option>
+              <option value="range" selected>Price range</option>
+              <option value="estimate">Free estimate</option>
+            </select>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-3 mb-3" id="price-fields">
+            <input id="svc-min-price" class="input-field" type="number" placeholder="Min price (£)" />
+            <input id="svc-max-price" class="input-field" type="number" placeholder="Max price (£)" />
+          </div>
+          <input id="svc-description" class="input-field mb-3" placeholder="Brief description (optional)" />
+          <button onclick="addService()" class="bg-blue-100 text-blue-700 px-4 py-2 rounded-lg text-sm font-medium hover:bg-blue-200 transition-colors">+ Add Service</button>
+        </div>
+
+        <!-- Service List -->
+        <div id="services-list" class="space-y-3">
+          <div class="text-center text-gray-400 py-8 text-sm">No services added yet. Add your first service above.</div>
+        </div>
+
+        <div class="flex gap-3 mt-8">
+          <button onclick="goToStep(2)" class="btn-secondary">Back</button>
+          <button onclick="goToStep(4)" class="btn-primary flex-1">Continue →</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Step 4: Service Areas -->
+    <div class="step-content fade-in hidden" id="step-4">
+      <div class="bg-white rounded-2xl shadow-sm border p-8 md:p-12">
+        <div class="flex items-center justify-between mb-2">
+          <h2 class="text-2xl font-bold text-gray-900">Service Areas</h2>
+          <span class="text-sm text-gray-400" id="area-count">0 areas</span>
+        </div>
+        <p class="text-gray-500 mb-6">Where do you cover? Add cities or postcodes your business serves.</p>
+        
+        <div class="bg-gray-50 rounded-xl p-4 mb-6">
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+            <input id="area-city" class="input-field" placeholder="City / town" />
+            <input id="area-postcode" class="input-field" placeholder="Postcode (optional)" />
+            <input id="area-radius" class="input-field" type="number" placeholder="Radius (miles)" />
+          </div>
+          <button onclick="addServiceArea()" class="mt-3 bg-blue-100 text-blue-700 px-4 py-2 rounded-lg text-sm font-medium hover:bg-blue-200 transition-colors">+ Add Area</button>
+        </div>
+
+        <div id="areas-list" class="space-y-2">
+          <div class="text-center text-gray-400 py-8 text-sm">No areas added yet.</div>
+        </div>
+
+        <div class="flex gap-3 mt-8">
+          <button onclick="goToStep(3)" class="btn-secondary">Back</button>
+          <button onclick="goToStep(5)" class="btn-primary flex-1">Review & Launch →</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Step 5: Done -->
+    <div class="step-content fade-in hidden" id="step-5">
+      <div class="bg-white rounded-2xl shadow-sm border p-8 md:p-12 text-center">
+        <div class="text-6xl mb-6">🎉</div>
+        <h2 class="text-3xl font-bold text-gray-900 mb-3">You're All Set!</h2>
+        <p class="text-gray-500 text-lg mb-2">Your Trademate profile is live. Here's what's next:</p>
+        
+        <div class="bg-blue-50 rounded-xl p-6 text-left mb-8 max-w-md mx-auto">
+          <div class="space-y-4">
+            <div class="flex items-start gap-3">
+              <span class="text-xl">🌐</span>
+              <div><div class="font-semibold text-sm">AI Website</div><div class="text-xs text-gray-500">Website builder team will create your site</div></div>
+            </div>
+            <div class="flex items-start gap-3">
+              <span class="text-xl">🤖</span>
+              <div><div class="font-semibold text-sm">Chatbot & Voice Agent</div><div class="text-xs text-gray-500">AI will answer calls and chat 24/7</div></div>
+            </div>
+            <div class="flex items-start gap-3">
+              <span class="text-xl">📅</span>
+              <div><div class="font-semibold text-sm">Booking System</div><div class="text-xs text-gray-500">Connect your calendar to accept bookings</div></div>
+            </div>
+          </div>
+        </div>
+
+        <p class="text-sm text-gray-400 mb-6">Your subscription: <span id="final-tier" class="font-semibold text-blue-600">Growth</span> (14-day free trial)</p>
+        
+        <div class="flex gap-3 justify-center">
+          <a href="/admin" class="btn-secondary">Admin Dashboard</a>
+          <a href="/api/health" class="btn-primary">Check API Status</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // ─── Auth ─────────────────────────────────────────────────────
+    let token = localStorage.getItem('trademate_token');
+    let userData = null;
+    let services = [];
+    let areas = [];
+
+    async function api(path, opts = {}) {
+      const headers = { 'Content-Type': 'application/json' };
+      if (token) headers['Authorization'] = `Bearer ${token}`;
+      const res = await fetch(path, { ...opts, headers });
+      return res.json();
+    }
+
+    // ─── On Load ─────────────────────────────────────────────────
+    async function init() {
+      // Try to recover token from URL hash
+      const hash = window.location.hash;
+      if (hash.startsWith('#token=')) {
+        token = hash.substring(7);
+        localStorage.setItem('trademate_token', token);
+        window.location.hash = '';
+      }
+
+      // Also check query params
+      const params = new URLSearchParams(window.location.search);
+      const queryToken = params.get('token');
+      if (queryToken) {
+        token = queryToken;
+        localStorage.setItem('trademate_token', token);
+        window.history.replaceState({}, '', '/onboarding');
+      }
+
+      if (token) {
+        const result = await api('/api/auth/me');
+        if (result.success) {
+          userData = result.data;
+          document.getElementById('user-email').textContent = userData.email;
+          prefillForm();
+          loadServices();
+          loadAreas();
+          // Check onboarding progress
+          const onb = await api('/api/users/onboarding');
+          if (onb.success) {
+            const completed = onb.data.filter(s => s.completed).length;
+            if (completed > 1) goToStep(Math.min(completed + 1, 5));
+          }
+          return;
+        }
+      }
+
+      // Not logged in — show login prompt
+      document.getElementById('user-email').textContent = 'Not signed in';
+      document.querySelector('.step-content:not(.hidden)')?.classList.add('hidden');
+      document.getElementById('step-1').classList.remove('hidden');
+      document.getElementById('step-1').innerHTML = `
+        <div class="bg-white rounded-2xl shadow-sm border p-8 md:p-12 text-center">
+          <div class="text-6xl mb-6">🔐</div>
+          <h1 class="text-2xl font-bold text-gray-900 mb-3">Sign in to Trademate</h1>
+          <p class="text-gray-500 mb-6">Enter your email to receive a magic sign-in link.</p>
+          <div class="max-w-sm mx-auto">
+            <input id="login-email" class="input-field mb-4" type="email" placeholder="your@email.com" />
+            <button onclick="sendMagicLink()" class="btn-primary w-full">Send Magic Link</button>
+            <p id="login-status" class="text-sm mt-3 text-gray-400 hidden"></p>
+          </div>
+        </div>
+      `;
+    }
+
+    async function sendMagicLink() {
+      const email = document.getElementById('login-email').value;
+      if (!email) return;
+      document.getElementById('login-status').textContent = 'Sending...';
+      document.getElementById('login-status').classList.remove('hidden');
+      const result = await api('/api/auth/magic-link', {
+        method: 'POST', body: JSON.stringify({ email })
+      });
+      if (result.success && result.magic_link) {
+        // Dev mode: auto-login with the returned link
+        const url = new URL(result.magic_link);
+        const tokenFromLink = url.searchParams.get('token');
+        const verify = await api('/api/auth/verify', {
+          method: 'POST', body: JSON.stringify({ token: tokenFromLink })
+        });
+        if (verify.success) {
+          token = verify.data.token;
+          localStorage.setItem('trademate_token', token);
+          window.location.reload();
+        }
+      } else {
+        document.getElementById('login-status').textContent = 'Check your email for the sign-in link!';
+      }
+    }
+
+    // ─── Step Navigation ─────────────────────────────────────────
+    function goToStep(n) {
+      document.querySelectorAll('.step-content').forEach(el => el.classList.add('hidden'));
+      document.getElementById(`step-${n}`).classList.remove('hidden');
+      
+      // Update progress dots
+      for (let i = 1; i <= 5; i++) {
+        const dot = document.querySelector(`.step-dot[data-step="${i}"] div`);
+        const line = document.getElementById(`progress-line-${i}`);
+        if (i < n) {
+          dot.className = 'w-8 h-8 rounded-full bg-green-500 text-white flex items-center justify-center text-sm font-bold';
+          dot.textContent = '✓';
+          if (line) line.style.width = '100%';
+        } else if (i === n) {
+          dot.className = 'w-8 h-8 rounded-full bg-blue-600 text-white flex items-center justify-center text-sm font-bold';
+          dot.textContent = i;
+          if (line) line.style.width = '50%';
+        } else {
+          dot.className = 'w-8 h-8 rounded-full bg-gray-200 text-gray-500 flex items-center justify-center text-sm font-bold';
+          dot.textContent = i;
+          if (line) line.style.width = '0%';
+        }
+      }
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // ─── Step 2: Business Info ───────────────────────────────────
+    function prefillForm() {
+      if (!userData) return;
+      document.getElementById('biz-name').value = userData.name || '';
+      document.getElementById('biz-business-name').value = userData.business_name || '';
+      document.getElementById('biz-phone').value = userData.business_phone || '';
+      document.getElementById('biz-address').value = userData.business_address || '';
+      document.getElementById('biz-description').value = userData.business_description || '';
+    }
+
+    async function saveBusinessInfo() {
+      const data = {
+        name: document.getElementById('biz-name').value,
+        business_name: document.getElementById('biz-business-name').value,
+        business_phone: document.getElementById('biz-phone').value,
+        business_address: document.getElementById('biz-address').value,
+        business_description: document.getElementById('biz-description').value
+      };
+      const result = await api('/api/users/profile', {
+        method: 'PUT', body: JSON.stringify(data)
+      });
+      if (result.success) {
+        userData = result.data;
+        goToStep(3);
+      } else {
+        alert('Failed to save: ' + (result.error || 'unknown error'));
+      }
+    }
+
+    // ─── Step 3: Services ────────────────────────────────────────
+    async function loadServices() {
+      const result = await api('/api/users/services');
+      if (result.success) {
+        services = result.data;
+        renderServices();
+      }
+    }
+
+    async function addService() {
+      const name = document.getElementById('svc-name').value;
+      if (!name) { alert('Enter a service name'); return; }
+      
+      const priceType = document.getElementById('svc-price-type').value;
+      const minPrice = parseFloat(document.getElementById('svc-min-price').value) || null;
+      const maxPrice = parseFloat(document.getElementById('svc-max-price').value) || null;
+      const description = document.getElementById('svc-description').value;
+
+      const result = await api('/api/users/services', {
+        method: 'POST', body: JSON.stringify({ name, price_type: priceType, min_price: minPrice, max_price: maxPrice, description })
+      });
+
+      if (result.success) {
+        services.push(result.data);
+        renderServices();
+        document.getElementById('svc-name').value = '';
+        document.getElementById('svc-min-price').value = '';
+        document.getElementById('svc-max-price').value = '';
+        document.getElementById('svc-description').value = '';
+      }
+    }
+
+    function renderServices() {
+      const list = document.getElementById('services-list');
+      document.getElementById('service-count').textContent = `${services.length} added`;
+      
+      if (services.length === 0) {
+        list.innerHTML = '<div class="text-center text-gray-400 py-8 text-sm">No services added yet.</div>';
+        return;
+      }
+
+      list.innerHTML = services.map((s, i) => `
+        <div class="flex items-center justify-between bg-white rounded-xl border p-4 hover:border-blue-200 transition-all">
+          <div>
+            <div class="font-semibold text-gray-900">${s.name}</div>
+            <div class="text-sm text-gray-500">${priceLabel(s)}</div>
+          </div>
+          <button onclick="deleteService('${s.id}', ${i})" class="text-red-400 hover:text-red-600 text-sm">Remove</button>
+        </div>
+      `).join('');
+    }
+
+    function priceLabel(s) {
+      if (s.price_type === 'fixed' && s.min_price) return `£${s.min_price} fixed`;
+      if (s.price_type === 'hourly' && s.min_price) return `£${s.min_price}/hour`;
+      if (s.price_type === 'range' && s.min_price && s.max_price) return `£${s.min_price} – £${s.max_price}`;
+      if (s.price_type === 'estimate') return 'Free estimate';
+      return 'Price on enquiry';
+    }
+
+    async function deleteService(id, idx) {
+      const result = await api(`/api/users/services/${id}`, { method: 'DELETE' });
+      if (result.success) {
+        services.splice(idx, 1);
+        renderServices();
+      }
+    }
+
+    // ─── Step 4: Service Areas ──────────────────────────────────
+    async function loadAreas() {
+      const result = await api('/api/users/service-areas');
+      if (result.success) {
+        areas = result.data;
+        renderAreas();
+      }
+    }
+
+    async function addServiceArea() {
+      const city = document.getElementById('area-city').value;
+      if (!city) { alert('Enter a city'); return; }
+      const postcode = document.getElementById('area-postcode').value;
+      const radius = parseFloat(document.getElementById('area-radius').value) || null;
+
+      const result = await api('/api/users/service-areas', {
+        method: 'POST', body: JSON.stringify({ city, postcode, radius_miles: radius })
+      });
+
+      if (result.success) {
+        areas.push(result.data);
+        renderAreas();
+        document.getElementById('area-city').value = '';
+        document.getElementById('area-postcode').value = '';
+        document.getElementById('area-radius').value = '';
+      }
+    }
+
+    function renderAreas() {
+      const list = document.getElementById('areas-list');
+      document.getElementById('area-count').textContent = `${areas.length} areas`;
+      
+      if (areas.length === 0) {
+        list.innerHTML = '<div class="text-center text-gray-400 py-8 text-sm">No areas added yet.</div>';
+        return;
+      }
+
+      list.innerHTML = areas.map((a, i) => `
+        <div class="flex items-center justify-between bg-white rounded-xl border p-3 hover:border-blue-200 transition-all">
+          <div>
+            <span class="font-medium text-gray-900">${a.city}</span>
+            ${a.postcode ? `<span class="text-sm text-gray-400 ml-2">${a.postcode}</span>` : ''}
+            ${a.radius_miles ? `<span class="text-sm text-gray-400">— ${a.radius_miles} mile radius</span>` : ''}
+          </div>
+          <button onclick="deleteArea('${a.id}', ${i})" class="text-red-400 hover:text-red-600 text-sm">Remove</button>
+        </div>
+      `).join('');
+    }
+
+    async function deleteArea(id, idx) {
+      const result = await api(`/api/users/service-areas/${id}`, { method: 'DELETE' });
+      if (result.success) {
+        areas.splice(idx, 1);
+        renderAreas();
+      }
+    }
+
+    // ─── Logout ──────────────────────────────────────────────────
+    function logout() {
+      localStorage.removeItem('trademate_token');
+      window.location.reload();
+    }
+
+    // ─── Init ────────────────────────────────────────────────────
+    init();
+  </script>
+</body>
+</html>
