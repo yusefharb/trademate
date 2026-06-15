@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 /**
- * Trademate — Twilio Phone Number Setup
+ * Tendd — Twilio Phone Number Setup
  *
  * Buys a Twilio phone number and configures it to forward to the Vapi.ai agent.
  * Handles the full Twilio → Vapi.ai voice forwarding pipeline.
@@ -16,7 +16,7 @@
  *   1. Checks if you already have a Twilio number
  *   2. If not, searches for an available UK geographic number
  *   3. Purchases the number
- *   4. Sets voice URL to point at the Trademate integrations service
+ *   4. Sets voice URL to point at the Tendd integrations service
  *   5. Optionally imports the number into Vapi.ai
  *
  * Flow:
@@ -35,7 +35,7 @@ const path = require('path')
 const TWILIO_ACCOUNT_SID = process.env.TWILIO_ACCOUNT_SID
 const TWILIO_AUTH_TOKEN = process.env.TWILIO_AUTH_TOKEN
 const VAPI_API_KEY = process.env.VAPI_API_KEY
-const WEBHOOK_BASE = (process.env.TRADEMATE_WEBHOOK_BASE_URL || 'http://localhost:4000').replace(/\/+$/, '')
+const WEBHOOK_BASE = (process.env.TENDD_WEBHOOK_BASE_URL || 'http://localhost:4000').replace(/\/+$/, '')
 const AREA_CODE = process.env.TWILIO_AREA_CODE || ''     // e.g., "020" for London
 const COUNTRY_CODE = process.env.TWILIO_COUNTRY || 'GB'
 
@@ -207,7 +207,7 @@ async function importToVapi (twilioPhoneNumber) {
 async function main () {
   console.log(`
 ╔══════════════════════════════════════════════╗
-║      Trademate Twilio Number Setup           ║
+║      Tendd Twilio Number Setup           ║
 ╚══════════════════════════════════════════════╝
 `)
 

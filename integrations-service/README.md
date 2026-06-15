@@ -1,6 +1,6 @@
-# Trademate Integrations Service
+# Tendd Integrations Service
 
-Third-party integrations for the Trademate platform: calendar booking, SMS, Google Business Profile, review management, and missed-call text-back.
+Third-party integrations for the Tendd platform: calendar booking, SMS, Google Business Profile, review management, and missed-call text-back.
 
 ## Architecture
 

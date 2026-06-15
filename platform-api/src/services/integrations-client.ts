@@ -1,5 +1,5 @@
 /**
- * Trademate — Integrations Client
+ * Tendd — Integrations Client
  *
  * Shared HTTP client for the Platform API to communicate
  * with the Integrations Service (SMS, calendar, GMB, reviews, etc.).

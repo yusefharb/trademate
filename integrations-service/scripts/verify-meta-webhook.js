@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 /**
- * Trademate — Meta Webhook Verification Script
+ * Tendd — Meta Webhook Verification Script
  *
  * Tests the Meta (Facebook/Instagram) webhook integration end-to-end:
  *   1. Verifies the webhook endpoint responds correctly to Meta's GET challenge
@@ -14,7 +14,7 @@
  *   node scripts/verify-meta-webhook.js
  *
  * Environment variables:
- *   TRADEMATE_WEBHOOK_BASE_URL — Your integrations service URL (default: http://localhost:4000)
+ *   TENDD_WEBHOOK_BASE_URL — Your integrations service URL (default: http://localhost:4000)
  *   META_VERIFY_TOKEN — Must match what you set in Meta Developer Console
  */
 
@@ -22,8 +22,8 @@ require('dotenv').config({ path: require('path').join(__dirname, '..', '.env') }
 const axios = require('axios')
 const crypto = require('crypto')
 
-const WEBHOOK_BASE = (process.env.TRADEMATE_WEBHOOK_BASE_URL || 'http://localhost:4000').replace(/\/+$/, '')
-const VERIFY_TOKEN = process.env.META_VERIFY_TOKEN || 'trademate-meta-verify'
+const WEBHOOK_BASE = (process.env.TENDD_WEBHOOK_BASE_URL || 'http://localhost:4000').replace(/\/+$/, '')
+const VERIFY_TOKEN = process.env.META_VERIFY_TOKEN || 'tendd-meta-verify'
 
 const PASS = '✅'
 const FAIL = '❌'
@@ -42,7 +42,7 @@ function testResult (name, success, detail = '') {
 async function main () {
   console.log(`
 ╔══════════════════════════════════════════════╗
-║     Trademate Meta Webhook Verification      ║
+║     Tendd Meta Webhook Verification      ║
 ╚══════════════════════════════════════════════╝
 `)
   console.log(`🌐 Webhook URL: ${WEBHOOK_BASE}/api/webhooks/meta`)

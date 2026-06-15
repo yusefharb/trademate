@@ -100,7 +100,7 @@ async function start() {
     console.log('✓ Database ready');
 
     app.listen(PORT, HOST, () => {
-      console.log(`\n  🏗️  Trademate API v0.1.0`);
+      console.log(`\n  🏗️  Tendd API v0.1.0`);
       console.log(`  📡 Listening on http://${HOST}:${PORT}`);
       console.log(`  🩺 Health: http://${HOST}:${PORT}/api/health`);
       console.log(`  🌍 Environment: ${process.env.NODE_ENV || 'development'}\n`);

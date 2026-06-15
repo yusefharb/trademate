@@ -1,14 +1,14 @@
 #!/usr/bin/env node
 
 /**
- * Trademate — Vapi.ai Voice Agent Setup Script
+ * Tendd — Vapi.ai Voice Agent Setup Script
  *
  * Configures a Vapi.ai voice agent for a trader using the Vapi REST API.
  * Creates or updates the agent with the receptionist prompt, tools, and webhooks.
  *
  * Usage:
  *   export VAPI_API_KEY="sk-..."
- *   export TRADEMATE_WEBHOOK_BASE_URL="https://integrations.trademateapp.uk"
+ *   export TENDD_WEBHOOK_BASE_URL="https://integrations.tenddapp.uk"
  *   node scripts/setup-vapi-agent.js
  *
  * Optional env vars for trader customisation:
@@ -28,7 +28,7 @@ const fs = require('fs')
 
 const VAPI_API_BASE = 'https://api.vapi.ai'
 const VAPI_API_KEY = process.env.VAPI_API_KEY
-const WEBHOOK_BASE = (process.env.TRADEMATE_WEBHOOK_BASE_URL || 'http://localhost:4000').replace(/\/+$/, '')
+const WEBHOOK_BASE = (process.env.TENDD_WEBHOOK_BASE_URL || 'http://localhost:4000').replace(/\/+$/, '')
 
 // ─── Validators ──────────────────────────────────────────────────────────────────
 
@@ -65,7 +65,7 @@ function buildAssistantConfig (opts = {}) {
   const businessName = opts.businessName || traderName
   const servicesList = (opts.services || (process.env.TRADER_SERVICES || 'plumbing, heating, gas')).split(',').map(s => s.trim()).join(', ')
   const traderPhone = opts.phone || process.env.TRADER_PHONE || '+447700900000'
-  const bookingLink = opts.bookingLink || process.env.TRADER_BOOKING_LINK || 'https://trademateapp.uk/book'
+  const bookingLink = opts.bookingLink || process.env.TRADER_BOOKING_LINK || 'https://tenddapp.uk/book'
 
   // Load prompt from file or build inline
   const basePrompt = loadReceptionistPrompt()
@@ -146,7 +146,7 @@ Handle incoming calls for the owner. Gather lead information. Provide a professi
     // Webhook server — Vapi POSTs call events here
     server: {
       url: `${WEBHOOK_BASE}/api/webhooks/vapi`,
-      secret: process.env.VAPI_WEBHOOK_SECRET || 'trademate-vapi-secret'
+      secret: process.env.VAPI_WEBHOOK_SECRET || 'tendd-vapi-secret'
     },
 
     // Call behaviour
@@ -217,7 +217,7 @@ async function importTwilioPhoneNumber (twilioPhoneNumber, twilioAccountSid) {
 async function main () {
   console.log(`
 ╔══════════════════════════════════════════════╗
-║        Trademate Vapi.ai Agent Setup         ║
+║        Tendd Vapi.ai Agent Setup         ║
 ╚══════════════════════════════════════════════╝
 `)
 
@@ -230,7 +230,7 @@ async function main () {
     businessName: process.env.TRADER_NAME || 'Ace Plumbing & Heating',
     services: process.env.TRADER_SERVICES || 'plumbing, heating, gas',
     phone: process.env.TRADER_PHONE || '+447700900000',
-    bookingLink: process.env.TRADER_BOOKING_LINK || 'https://trademateapp.uk/book'
+    bookingLink: process.env.TRADER_BOOKING_LINK || 'https://tenddapp.uk/book'
   }
 
   console.log(`🧑‍🔧 Trader: ${trader.businessName} (${trader.id})`)

@@ -1,7 +1,7 @@
 {
-  "name": "@trademate/integrations-service",
+  "name": "@tendd/integrations-service",
   "version": "1.0.0",
-  "description": "Trademate third-party integrations: calendar, SMS, GMB, reviews, missed-call text-back",
+  "description": "Tendd third-party integrations: calendar, SMS, GMB, reviews, missed-call text-back",
   "main": "src/index.js",
   "scripts": {
     "start": "node src/index.js",

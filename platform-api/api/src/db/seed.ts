@@ -15,7 +15,7 @@ db.prepare(`
   VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
 `).run(
   demoUserId,
-  'demo@trademateapp.uk',
+  'demo@tenddapp.uk',
   'Dave Smith',
   'Smith & Sons Plumbing',
   '+44 7700 900123',
@@ -87,7 +87,7 @@ steps.forEach((step, i) => {
 });
 
 console.log('✓ Seed data created!');
-console.log(`  Demo user email: demo@trademateapp.uk`);
+console.log(`  Demo user email: demo@tenddapp.uk`);
 console.log(`  Demo user ID: ${demoUserId}`);
 console.log(`  Passwordless login via magic link.`);
 

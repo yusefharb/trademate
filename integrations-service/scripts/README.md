@@ -1,6 +1,6 @@
-# Trademate — Integration Setup Scripts
+# Tendd — Integration Setup Scripts
 
-This directory contains scripts for setting up and testing third-party integrations for Trademate.
+This directory contains scripts for setting up and testing third-party integrations for Tendd.
 
 ## Prerequisites
 
@@ -27,8 +27,8 @@ export VAPI_API_KEY="sk-your-vapi-api-key"
 export TRADER_NAME="Ace Plumbing"
 export TRADER_SERVICES="plumbing, heating, gas"
 export TRADER_PHONE="+447700900000"
-export TRADER_BOOKING_LINK="https://aceplumbing.trademateapp.uk/book"
-export TRADEMATE_WEBHOOK_BASE_URL="https://integrations.trademateapp.uk"
+export TRADER_BOOKING_LINK="https://aceplumbing.tenddapp.uk/book"
+export TENDD_WEBHOOK_BASE_URL="https://integrations.tenddapp.uk"
 
 # Run it
 node scripts/setup-vapi-agent.js
@@ -51,7 +51,7 @@ Buys/configures a Twilio phone number for call forwarding.
 ```bash
 export TWILIO_ACCOUNT_SID="AC..."
 export TWILIO_AUTH_TOKEN="..."
-export TRADEMATE_WEBHOOK_BASE_URL="https://integrations.trademateapp.uk"
+export TENDD_WEBHOOK_BASE_URL="https://integrations.tenddapp.uk"
 
 node scripts/setup-twilio-number.js
 ```
@@ -79,7 +79,7 @@ Customer calls Twilio number
 Tests the Facebook/Instagram DM webhook endpoint.
 
 ```bash
-export TRADEMATE_WEBHOOK_BASE_URL="https://integrations.trademateapp.uk"
+export TENDD_WEBHOOK_BASE_URL="https://integrations.tenddapp.uk"
 export META_VERIFY_TOKEN="your-verify-token"
 
 node scripts/verify-meta-webhook.js
@@ -98,7 +98,7 @@ node scripts/verify-meta-webhook.js
 Simulates Vapi.ai call events to test the full pipeline.
 
 ```bash
-export TRADEMATE_WEBHOOK_BASE_URL="https://integrations.trademateapp.uk"
+export TENDD_WEBHOOK_BASE_URL="https://integrations.tenddapp.uk"
 
 node scripts/test-vapi-webhook.js
 ```
@@ -136,4 +136,4 @@ node scripts/verify-meta-webhook.js
 | `TWILIO_PHONE_NUMBER` | Runtime | Purchased number |
 | `META_VERIFY_TOKEN` | Meta scripts | Webhook verify token |
 | `META_PAGE_ACCESS_TOKEN` | Runtime | Page access token |
-| `TRADEMATE_WEBHOOK_BASE_URL` | All scripts | Your integrations service URL |
+| `TENDD_WEBHOOK_BASE_URL` | All scripts | Your integrations service URL |

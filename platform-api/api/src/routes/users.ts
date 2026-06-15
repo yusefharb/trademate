@@ -190,7 +190,7 @@ router.post('/website-subdomain', (req: Request, res: Response) => {
     return;
   }
 
-  res.json({ success: true, data: { subdomain, url: `https://${subdomain}.trademateapp.uk` } });
+  res.json({ success: true, data: { subdomain, url: `https://${subdomain}.tenddapp.uk` } });
 });
 
 export default router;

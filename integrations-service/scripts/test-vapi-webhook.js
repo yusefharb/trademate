@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 /**
- * Trademate — Vapi Call Flow Test
+ * Tendd — Vapi Call Flow Test
  *
  * Simulates a Vapi.ai call.ended webhook to test the full pipeline:
  *   Vapi → integrations service → lead capture → missed-call text-back
@@ -20,8 +20,8 @@ require('dotenv').config({ path: require('path').join(__dirname, '..', '.env') }
 const axios = require('axios')
 const crypto = require('crypto')
 
-const WEBHOOK_BASE = (process.env.TRADEMATE_WEBHOOK_BASE_URL || 'http://localhost:4000').replace(/\/+$/, '')
-const VAPI_WEBHOOK_SECRET = process.env.VAPI_WEBHOOK_SECRET || 'trademate-vapi-secret'
+const WEBHOOK_BASE = (process.env.TENDD_WEBHOOK_BASE_URL || 'http://localhost:4000').replace(/\/+$/, '')
+const VAPI_WEBHOOK_SECRET = process.env.VAPI_WEBHOOK_SECRET || 'tendd-vapi-secret'
 
 const PASS = '✅'
 const FAIL = '❌'
@@ -39,7 +39,7 @@ function testResult (name, success, detail = '') {
 async function main () {
   console.log(`
 ╔══════════════════════════════════════════════╗
-║      Trademate Vapi Webhook Test             ║
+║      Tendd Vapi Webhook Test             ║
 ╚══════════════════════════════════════════════╝
 `)
   console.log(`🌐 Webhook URL: ${WEBHOOK_BASE}/api/webhooks/vapi`)

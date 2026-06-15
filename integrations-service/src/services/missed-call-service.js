@@ -2,7 +2,7 @@
  * Missed-Call Text-Back Service
  *
  * Handles the missed-call → SMS flow:
- * 1. Trader's phone number forwards to Trademate (Twilio)
+ * 1. Trader's phone number forwards to Tendd (Twilio)
  * 2. If the call is not answered within X rings → trigger text-back
  * 3. Twilio webhook fires → we log the missed call → SMS the caller
  *
@@ -69,7 +69,7 @@ async function handleMissedCall ({ callerNumber, callerName, traderId, traderNam
     to: callerNumber,
     customerName: callerName || 'there',
     traderName: traderName || 'Your Trader',
-    bookingLink: bookingLink || 'https://trademateapp.uk/book'
+    bookingLink: bookingLink || 'https://tenddapp.uk/book'
   })
 
   return {
@@ -144,7 +144,7 @@ async function handleForwardResult (twilioParams) {
       callerName: twilioParams.CallerName || '',
       traderId: twilioParams.traderId || 'unknown',
       traderName: twilioParams.traderName || 'Your Trader',
-      bookingLink: twilioParams.bookingLink || 'https://trademateapp.uk/book'
+      bookingLink: twilioParams.bookingLink || 'https://tenddapp.uk/book'
     })
   }
 

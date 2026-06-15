@@ -1,7 +1,7 @@
-# Trademate Core Platform API v0.1.0
+# Tendd Core Platform API v0.1.0
 
 ## Overview
-The core Trademate backend serves as the central hub for all Trademate services.
+The core Tendd backend serves as the central hub for all Tendd services.
 
 **Base URL:** `http://0.0.0.0:3001/api`
 
@@ -90,7 +90,7 @@ See `api/src/db/schema.ts` for full schema.
 Steps: `account_created` → `business_info` → `services_added` → `service_areas` → `pricing_set` → `booking_connected` → `website_generated` → `voice_setup` → `social_connected` → `complete`
 
 ## Demo Data
-- Email: `demo@trademateapp.uk`
+- Email: `demo@tenddapp.uk`
 - Uses Growth tier (14-day trial)
 - Has 4 services, 4 service areas, 4 sample leads
 - Onboarding at step 5/10 (pricing_set)

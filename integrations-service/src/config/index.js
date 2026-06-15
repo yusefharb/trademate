@@ -1,5 +1,5 @@
 /**
- * Trademate Integrations Service — Configuration
+ * Tendd Integrations Service — Configuration
  *
  * Loads environment variables and provides a central config object.
  * All third-party API keys and endpoints are managed here.

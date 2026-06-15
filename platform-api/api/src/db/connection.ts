@@ -12,7 +12,7 @@ let db: Database.Database | null = null;
 export function getDb(): Database.Database {
   if (db) return db;
 
-  const dbPath = process.env.DATABASE_PATH || './data/trademate.db';
+  const dbPath = process.env.DATABASE_PATH || './data/tendd.db';
   const dbDir = path.dirname(dbPath);
 
   // Ensure the data directory exists

@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Get Started — Trademate</title>
+  <title>Get Started — Tendd</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   <style>
@@ -25,7 +25,7 @@
     <div class="max-w-5xl mx-auto px-4 py-3 flex items-center justify-between">
       <div class="flex items-center gap-3">
         <span class="text-2xl">🏗️</span>
-        <span class="text-xl font-bold text-gray-900">Trademate</span>
+        <span class="text-xl font-bold text-gray-900">Tendd</span>
       </div>
       <div class="flex items-center gap-4">
         <span class="text-sm text-gray-500" id="user-email">Loading...</span>
@@ -58,7 +58,7 @@
     <div class="step-content fade-in" id="step-1">
       <div class="bg-white rounded-2xl shadow-sm border p-8 md:p-12 text-center">
         <div class="text-6xl mb-6">👋</div>
-        <h1 class="text-3xl font-bold text-gray-900 mb-3">Welcome to Trademate</h1>
+        <h1 class="text-3xl font-bold text-gray-900 mb-3">Welcome to Tendd</h1>
         <p class="text-gray-500 text-lg mb-8 max-w-md mx-auto">Let's get your business set up in 5 minutes. We'll collect your info, services, and get you ready to capture leads.</p>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
           <div class="bg-blue-50 rounded-xl p-4 text-left"><div class="text-2xl mb-2">🌐</div><div class="font-semibold text-sm">AI Website</div><div class="text-xs text-gray-500">Auto-generated from your info</div></div>
@@ -177,7 +177,7 @@
       <div class="bg-white rounded-2xl shadow-sm border p-8 md:p-12 text-center">
         <div class="text-6xl mb-6">🎉</div>
         <h2 class="text-3xl font-bold text-gray-900 mb-3">You're All Set!</h2>
-        <p class="text-gray-500 text-lg mb-2">Your Trademate profile is live. Here's what's next:</p>
+        <p class="text-gray-500 text-lg mb-2">Your Tendd profile is live. Here's what's next:</p>
         
         <div class="bg-blue-50 rounded-xl p-6 text-left mb-8 max-w-md mx-auto">
           <div class="space-y-4">
@@ -208,7 +208,7 @@
 
   <script>
     // ─── Auth ─────────────────────────────────────────────────────
-    let token = localStorage.getItem('trademate_token');
+    let token = localStorage.getItem('tendd_token');
     let userData = null;
     let services = [];
     let areas = [];
@@ -226,7 +226,7 @@
       const hash = window.location.hash;
       if (hash.startsWith('#token=')) {
         token = hash.substring(7);
-        localStorage.setItem('trademate_token', token);
+        localStorage.setItem('tendd_token', token);
         window.location.hash = '';
       }
 
@@ -235,7 +235,7 @@
       const queryToken = params.get('token');
       if (queryToken) {
         token = queryToken;
-        localStorage.setItem('trademate_token', token);
+        localStorage.setItem('tendd_token', token);
         window.history.replaceState({}, '', '/onboarding');
       }
 
@@ -264,7 +264,7 @@
       document.getElementById('step-1').innerHTML = `
         <div class="bg-white rounded-2xl shadow-sm border p-8 md:p-12 text-center">
           <div class="text-6xl mb-6">🔐</div>
-          <h1 class="text-2xl font-bold text-gray-900 mb-3">Sign in to Trademate</h1>
+          <h1 class="text-2xl font-bold text-gray-900 mb-3">Sign in to Tendd</h1>
           <p class="text-gray-500 mb-6">Enter your email to receive a magic sign-in link.</p>
           <div class="max-w-sm mx-auto">
             <input id="login-email" class="input-field mb-4" type="email" placeholder="your@email.com" />
@@ -292,7 +292,7 @@
         });
         if (verify.success) {
           token = verify.data.token;
-          localStorage.setItem('trademate_token', token);
+          localStorage.setItem('tendd_token', token);
           window.location.reload();
         }
       } else {
@@ -482,7 +482,7 @@
 
     // ─── Logout ──────────────────────────────────────────────────
     function logout() {
-      localStorage.removeItem('trademate_token');
+      localStorage.removeItem('tendd_token');
       window.location.reload();
     }
 

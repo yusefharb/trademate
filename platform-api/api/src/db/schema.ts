@@ -1,5 +1,5 @@
 // ============================================================
-// Trademate Database Schema
+// Tendd Database Schema
 // SQLite schema definitions
 // ============================================================
 

@@ -133,10 +133,10 @@ function getTraderReviewStats (traderId) {
 
 /**
  * Generate a tracking URL for a review request.
- * This URL should redirect through the Trademate platform first to track the click.
+ * This URL should redirect through the Tendd platform first to track the click.
  *
  * @param {string} reviewRequestId
- * @param {string} baseUrl - Trademate platform base URL
+ * @param {string} baseUrl - Tendd platform base URL
  * @returns {string} Tracking URL
  */
 function getTrackingUrl (reviewRequestId, baseUrl = 'http://localhost:4000') {

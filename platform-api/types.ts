@@ -1,6 +1,6 @@
 // ============================================================
-// Trademate Shared Types
-// Shared across all Trademate services (API, Integrations, Chatbot, Website)
+// Tendd Shared Types
+// Shared across all Tendd services (API, Integrations, Chatbot, Website)
 // ============================================================
 
 /** Subscription tiers */

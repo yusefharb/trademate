@@ -1,5 +1,5 @@
 /**
- * Trademate Lead & Booking Data Models
+ * Tendd Lead & Booking Data Models
  *
  * These are the canonical data structures used across all integration services.
  * They define the schema for leads, bookings, communications, and reviews.

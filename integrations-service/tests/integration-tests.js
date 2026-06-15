@@ -131,7 +131,7 @@ describe('SMS Service', () => {
       to: '+447700900001',
       customerName: 'John',
       traderName: 'Ace Plumbing',
-      bookingLink: 'https://plumber.trademateapp.uk/book'
+      bookingLink: 'https://plumber.tenddapp.uk/book'
     })
 
     assert.equal(result.success, true)
@@ -176,7 +176,7 @@ describe('Missed Call Service', () => {
       callerName: 'John Smith',
       traderId: 'trader-1',
       traderName: 'Ace Plumbing',
-      bookingLink: 'https://plumber.trademateapp.uk/book'
+      bookingLink: 'https://plumber.tenddapp.uk/book'
     })
 
     assert.ok(result.leadId)
@@ -188,7 +188,7 @@ describe('Missed Call Service', () => {
   it('should generate TwiML for call forwarding', () => {
     const twiml = missedCallService.buildForwardingTwiML({
       traderPhone: '+447700900100',
-      webhookBaseUrl: 'https://integrations.trademateapp.uk'
+      webhookBaseUrl: 'https://integrations.tenddapp.uk'
     })
 
     assert.ok(twiml.includes('<Dial'))
@@ -317,7 +317,7 @@ describe('Review Management', () => {
   })
 
   it('should generate tracking URL', () => {
-    const url = reviewService.getTrackingUrl('req-123', 'https://integrations.trademateapp.uk')
+    const url = reviewService.getTrackingUrl('req-123', 'https://integrations.tenddapp.uk')
     assert.ok(url.includes('/api/reviews/track/req-123'))
   })
 })

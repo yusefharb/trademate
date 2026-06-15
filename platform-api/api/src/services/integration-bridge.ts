@@ -1,5 +1,5 @@
 /**
- * Trademate Platform — Integration Bridge
+ * Tendd Platform — Integration Bridge
  *
  * Wires the Platform API (SQLite backend) to the Integrations Service
  * (SMS, calendar, GMB, reviews, missed-call handling).

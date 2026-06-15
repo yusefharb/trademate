@@ -1,11 +1,11 @@
-# Trademate
+# Tendd
 
 AI-powered customer acquisition and retention platform for tradespeople.
 
 ## Repository Structure
 
 ```
-trademate/
+tendd/
 ├── platform-api/          # Core SaaS platform (Node.js/Express + SQLite)
 │   ├── api/               # Express API (port 3001)
 │   │   ├── src/           # TypeScript source
@@ -50,6 +50,6 @@ npm start       # http://localhost:4000
 - **UI:** Tailwind CSS, vanilla JS
 
 ## Demo Trader
-- Email: `demo@trademateapp.uk`
+- Email: `demo@tenddapp.uk`
 - Tier: Growth (14-day trial)
 - Services: Plumbing, boiler installation, bathroom renovation

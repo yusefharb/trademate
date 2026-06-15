@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Get Started — Trademate</title>
+  <title>Get Started — Tendd</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   <style>
@@ -20,7 +20,7 @@
     <div class="max-w-5xl mx-auto px-4 py-3 flex items-center justify-between">
       <div class="flex items-center gap-3">
         <span class="text-2xl">🏗️</span>
-        <span class="text-xl font-bold text-gray-900">Trademate</span>
+        <span class="text-xl font-bold text-gray-900">Tendd</span>
       </div>
       <span class="text-sm text-gray-500" id="user-email">Loading...</span>
     </div>
@@ -60,7 +60,7 @@
       <div class="bg-white rounded-2xl shadow-sm border p-8 md:p-12 text-center">
         <div class="text-6xl mb-6">👋</div>
         <h1 class="text-3xl font-bold text-gray-900 mb-3">Your Account</h1>
-        <p class="text-gray-500 mb-8">Sign in to get started with Trademate.</p>
+        <p class="text-gray-500 mb-8">Sign in to get started with Tendd.</p>
         <div class="max-w-sm mx-auto">
           <input id="login-email" class="input-field mb-4" type="email" placeholder="your@email.com" />
           <button onclick="sendMagicLink()" class="btn-primary w-full">Send Magic Link</button>
@@ -153,7 +153,7 @@
         <h2 class="text-2xl font-bold text-gray-900 mb-2">🌐 AI Website</h2>
         <p class="text-gray-500 mb-6">Your AI-powered website will be generated automatically from your info.</p>
         <div class="bg-green-50 rounded-xl p-6 text-center">
-          <p class="text-sm text-gray-600">The Website Builder team will create and deploy your site at <strong>yourbusiness.trademateapp.uk</strong></p>
+          <p class="text-sm text-gray-600">The Website Builder team will create and deploy your site at <strong>yourbusiness.tenddapp.uk</strong></p>
         </div>
         <div class="flex gap-3 mt-8"><button onclick="goStep(6)" class="btn-secondary">Back</button><button onclick="advance(7)" class="btn-primary flex-1">Continue →</button></div>
       </div>
@@ -188,7 +188,7 @@
       <div class="bg-white rounded-2xl shadow-sm border p-8 md:p-12 text-center">
         <div class="text-6xl mb-6">🎉</div>
         <h2 class="text-3xl font-bold text-gray-900 mb-3">You're All Set!</h2>
-        <p class="text-gray-500 mb-6">Your Trademate profile is ready. The team will take it from here.</p>
+        <p class="text-gray-500 mb-6">Your Tendd profile is ready. The team will take it from here.</p>
         <div class="grid grid-cols-2 gap-3 max-w-sm mx-auto mb-8">
           <a href="/admin" class="btn-secondary text-center">Dashboard</a>
           <a href="/api/health" class="btn-primary text-center">API Status</a>
@@ -198,7 +198,7 @@
   </div>
 
   <script>
-    let token = localStorage.getItem('trademate_token');
+    let token = localStorage.getItem('tendd_token');
     let userData = null;
     let services = [];
     let areas = [];
@@ -215,14 +215,14 @@
       const hash = window.location.hash;
       if (hash.startsWith('#token=')) {
         token = hash.substring(7);
-        localStorage.setItem('trademate_token', token);
+        localStorage.setItem('tendd_token', token);
         window.location.hash = '';
       }
       const params = new URLSearchParams(window.location.search);
       const qt = params.get('token');
       if (qt) {
         token = qt;
-        localStorage.setItem('trademate_token', token);
+        localStorage.setItem('tendd_token', token);
         window.history.replaceState({}, '', '/onboarding');
       }
 
@@ -258,7 +258,7 @@
         const v = await api('/api/auth/verify', { method: 'POST', body: JSON.stringify({ token: tokenFromLink }) });
         if (v.success) {
           token = v.data.token;
-          localStorage.setItem('trademate_token', token);
+          localStorage.setItem('tendd_token', token);
           window.location.reload();
         }
       } else {

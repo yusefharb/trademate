@@ -1,5 +1,5 @@
 /**
- * Trademate Integrations Service — Main Entry Point
+ * Tendd Integrations Service — Main Entry Point
  *
  * Express server that exposes:
  * - Webhook endpoints (Twilio, Calendly, Cal.com, Vapi, Meta)
@@ -365,7 +365,7 @@ async function start () {
   app.listen(config.port, '0.0.0.0', () => {
     console.log(`
 ╔══════════════════════════════════════════════╗
-║        Trademate Integrations Service        ║
+║        Tendd Integrations Service        ║
 ║──────────────────────────────────────────────║
 ║  Status:  ✅ Running                        ║
 ║  Port:    ${String(config.port).padEnd(33)}║

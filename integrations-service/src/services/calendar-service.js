@@ -5,7 +5,7 @@
  * - Fetch available time slots
  * - Create bookings from accepted quotes
  * - Handle booking webhooks (created, cancelled)
- * - Sync bookings to the Trademate platform
+ * - Sync bookings to the Tendd platform
  *
  * Supports both Calendly (managed) and Cal.com (self-hosted) as providers.
  */
@@ -92,7 +92,7 @@ async function calendlyCreateBooking (eventTypeUri, invitee) {
         owner_type: 'EventType',
         invitee: {
           name: invitee.name,
-          email: invitee.email || `${invitee.phone}@trademate.app`
+          email: invitee.email || `${invitee.phone}@tendd.app`
         }
       },
       { headers: calendlyHeaders() }
@@ -274,7 +274,7 @@ async function createBooking (params) {
       const eventTypeUri = `https://api.calendly.com/event_types/${traderId}` // placeholder
       const result = await calendlyCreateBooking(eventTypeUri, {
         name: customerName,
-        email: customerEmail || `${customerPhone}@trademate.app`
+        email: customerEmail || `${customerPhone}@tendd.app`
       })
 
       booking.calendarEventId = result.bookingUrl
@@ -287,7 +287,7 @@ async function createBooking (params) {
         start: scheduledFor,
         attendee: {
           name: customerName,
-          email: customerEmail || `${customerPhone}@trademate.app`,
+          email: customerEmail || `${customerPhone}@tendd.app`,
           timeZone: 'Europe/London'
         },
         metadata: { leadId, traderId, serviceType }

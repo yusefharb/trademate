@@ -1,8 +1,8 @@
 {
-  "name": "trademate-api",
+  "name": "tendd-api",
   "version": "0.1.0",
   "private": true,
-  "description": "Trademate SaaS Platform - Core API",
+  "description": "Tendd SaaS Platform - Core API",
   "scripts": {
     "dev": "tsx watch src/index.ts",
     "build": "tsc",

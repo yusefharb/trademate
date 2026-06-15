@@ -23,7 +23,7 @@ const { sendMessengerReply, sendInstagramReply } = require('./meta-send')
 router.get('/health', (req, res) => {
   res.json({
     status: 'ok',
-    service: 'trademate-integrations',
+    service: 'tendd-integrations',
     timestamp: new Date().toISOString()
   })
 })
@@ -97,7 +97,7 @@ router.post('/twilio/voice-fallback', async (req, res) => {
     const traderId = req.body.traderId || process.env.TRADER_ID || 'unknown'
     const traderName = req.body.traderName || process.env.TRADER_NAME || 'Your Trader'
     const vapiAgentId = process.env.VAPI_AGENT_ID
-    const webhookBase = process.env.TRADEMATE_WEBHOOK_BASE_URL || `https://${req.get('host')}`
+    const webhookBase = process.env.TENDD_WEBHOOK_BASE_URL || `https://${req.get('host')}`
 
     if (vapiAgentId) {
       // Connect to Vapi.ai via Stream
@@ -130,7 +130,7 @@ router.post('/twilio/voice-fallback', async (req, res) => {
           callerName: req.body.CallerName || '',
           traderId,
           traderName,
-          bookingLink: process.env.TRADER_BOOKING_LINK || 'https://trademateapp.uk/book'
+          bookingLink: process.env.TRADER_BOOKING_LINK || 'https://tenddapp.uk/book'
         })
 
         res.set('Content-Type', 'text/xml')
@@ -286,7 +286,7 @@ router.post('/vapi', async (req, res) => {
             callerName: customer.name || '',
             traderId: call.assistantId || 'vapi-agent',
             traderName: process.env.TRADER_NAME || 'Your Trader',
-            bookingLink: process.env.TRADER_BOOKING_LINK || 'https://trademateapp.uk/book',
+            bookingLink: process.env.TRADER_BOOKING_LINK || 'https://tenddapp.uk/book',
             leadId: lead.id
           })
         }
@@ -301,7 +301,7 @@ router.post('/vapi', async (req, res) => {
           callerName: customer.name || '',
           traderId: call?.assistantId || 'vapi-agent',
           traderName: process.env.TRADER_NAME || 'Your Trader',
-          bookingLink: process.env.TRADER_BOOKING_LINK || 'https://trademateapp.uk/book'
+          bookingLink: process.env.TRADER_BOOKING_LINK || 'https://tenddapp.uk/book'
         })
         break
       }
@@ -348,7 +348,7 @@ router.all('/meta', async (req, res) => {
       const token = req.query['hub.verify_token']
       const challenge = req.query['hub.challenge']
 
-      const expectedToken = process.env.META_VERIFY_TOKEN || 'trademate-meta-verify'
+      const expectedToken = process.env.META_VERIFY_TOKEN || 'tendd-meta-verify'
 
       if (mode === 'subscribe' && token === expectedToken) {
         console.log('[Webhook] ✅ Meta webhook verified')
